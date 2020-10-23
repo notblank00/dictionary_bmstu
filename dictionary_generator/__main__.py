@@ -1,44 +1,26 @@
 import datetime
-
+import sys
 import pathlib
 
 from dictionary_generator.table.generator import Generator
 
 
 def main():
-    name = input("ФИО:\n")
-    date_of_birth = input("Дата рождения:\n")
-    group = input("Группа:\n")
-    weight = input("Вес:\n")
-    height = input("Рост:\n")
+    name = sys.argv[1]
+    date_of_birth = sys.argv[2]
+    group = sys.argv[3]
+    weight = sys.argv[4]
+    height = sys.argv[5]
 
-    document_name = input("название документа:\n")
+    document_name = sys.argv[6]
+    start_str = sys.argv[7];
+    start = datetime.datetime.strptime(start_str, "%d.%m.%Y")
 
-    while True:
-        start_str = input("дата начала занятий, формат: %d.%m.%Y:\n")
-        try:
-            start = datetime.datetime.strptime(start_str, "%d.%m.%Y")
-        except ValueError:
-            print("некоректная дата")
-        else:
-            break
+    end_str = sys.argv[8];
+    end = datetime.datetime.strptime(end_str, "%d.%m.%Y")
 
-    while True:
-        end_str = input("дата конца занятий, формат: %d.%m.%Y:\n")
-        try:
-            end = datetime.datetime.strptime(end_str, "%d.%m.%Y")
-        except ValueError:
-            print("некоректная дата")
-        else:
-            break
 
-    while True:
-        try:
-            frequency = int(input("раз в сколько дней были занятия?\n"))
-        except ValueError:
-            print("некоректное число")
-        else:
-            break
+    frequency = int(sys.argv[9])
 
     generator = Generator()
 
