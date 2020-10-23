@@ -12,15 +12,15 @@ def main():
     weight = sys.argv[4]
     height = sys.argv[5]
 
-    document_name = sys.argv[6]
-    start_str = sys.argv[7];
+    document_name = sys.argv[9]
+    start_str = sys.argv[6];
     start = datetime.datetime.strptime(start_str, "%d.%m.%Y")
 
-    end_str = sys.argv[8];
+    end_str = sys.argv[7];
     end = datetime.datetime.strptime(end_str, "%d.%m.%Y")
 
 
-    frequency = int(sys.argv[9])
+    frequency = int(sys.argv[8])
 
     generator = Generator()
 
